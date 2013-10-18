@@ -1,0 +1,41 @@
+<div class="thumbnails col-xs-6">
+    <a data-toggle="modal" href="#modal{{ id }}" class="thumbnail plain showcaseThumb">
+      <img src="images/{{ img }}"> 
+      <h5>{{ name }}</h5>   
+    </a>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal{{ id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{ name }}</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <img src="http://placehold.it/400x200" class="img-responsive">
+                </div>
+                <div>
+                    <dl>
+                        <dt>Synopsis</dt>
+                        <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie elit sit amet ornare placerat.</dd>
+                        <dt>Client</dt>
+                        <dd>Ipsum Inc</dd>
+                        <dt>Date</dt>
+                        <dd>1/1/13</dd>
+                        <dt>Students</dt>
+                        <dd>Lorem Ipsum, Dolor Sit Amet, Molestie Elit</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
