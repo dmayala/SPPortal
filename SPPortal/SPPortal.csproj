@@ -220,6 +220,7 @@
     <Content Include="Scripts\models\token.js" />
     <Content Include="Scripts\routers\appRouter - Copy.js" />
     <Content Include="Scripts\routers\appRouter.js" />
+    <Content Include="Scripts\templates\projects.html" />
     <Content Include="Scripts\templates\account.html" />
     <Content Include="Scripts\templates\home.html" />
     <Content Include="Scripts\templates\loggedin.html" />
@@ -1053,6 +1054,7 @@
     <Content Include="Scripts\vendor\underscore-amd\test\vendor\runner.js" />
     <Content Include="Scripts\vendor\underscore-amd\underscore-min.js" />
     <Content Include="Scripts\vendor\underscore-amd\underscore.js" />
+    <Content Include="Scripts\views\projectsView.js" />
     <Content Include="Scripts\views\accountView.js" />
     <Content Include="Scripts\views\homeView.js" />
     <Content Include="Scripts\views\projectItemView.js" />

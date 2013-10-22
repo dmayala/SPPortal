@@ -1,4 +1,4 @@
-define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView', 'views/signupView', 'views/accountView', 'views/rightControlsView', 'models/token'], function (Backbone, Projects, HomeView, ProjectView, SignupView, AccountView, RightControlsView, Token) {
+define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView', 'views/signupView', 'views/accountView', 'views/rightControlsView', 'models/token', 'views/projectsView'], function (Backbone, Projects, HomeView, ProjectView, SignupView, AccountView, RightControlsView, Token, ProjectsView) {
 
   var Controller = function() {
     this.collection = new Projects();
@@ -20,7 +20,7 @@ define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView
       this.currentView = view;
       this.currentView.render();
 
-      $("#main").html(this.currentView.el);
+      $("#main").hide().html(this.currentView.el).fadeIn(1000);
     },
 
     showLoginHeader: function (token) {
@@ -39,6 +39,10 @@ define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView
 
     showAccount: function () {
       this.showView(new AccountView());
+    },
+
+    showProjects: function () {
+        this.showView(new ProjectsView());
     }
 
   });

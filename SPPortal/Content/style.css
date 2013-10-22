@@ -3,6 +3,10 @@
     padding-bottom: 0px;
 }
 
+#queryresults .thumbnails {
+    padding-top: 20px;
+}
+
 /*Temporary until Bootstrap theme completion*/
 
 .navbar.navbar-default.navbar-fixed-top {

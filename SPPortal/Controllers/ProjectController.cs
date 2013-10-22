@@ -34,6 +34,19 @@ namespace SPPortal.Controllers
             return project;
         }
 
+        //Search Projects
+        // GET api/Project?q=parameter
+        public Project GetProject(string q)
+        {
+            Project project = db.Projects.Where(p => p.name.Contains(q)).FirstOrDefault();
+            if (project == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return project;
+        }
+
         // PUT api/Project/5
         public HttpResponseMessage PutProject(long id, Project project)
         {

@@ -45,7 +45,8 @@ define(['backbone'], function (Backbone) {
           ""                  : "home",
           "signoff"           : "home",
           "signup"            : "signup",
-          "account"           : "account"
+          "account"           : "account",
+          "projects"          : "projects"
         },
 
         home: function (page) {
@@ -58,6 +59,10 @@ define(['backbone'], function (Backbone) {
 
         account: function () {
             this.controller.showAccount();
+        },
+
+        projects: function () {
+            this.controller.showProjects();
         }
     });
 
