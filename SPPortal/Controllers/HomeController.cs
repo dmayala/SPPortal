@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace SPPortal.Controllers
 {
+    [SessionState(System.Web.SessionState.SessionStateBehavior.ReadOnly)]
     public class HomeController : Controller
     {
         public ActionResult Index(string returnUrl)

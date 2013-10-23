@@ -17,7 +17,7 @@ define(['backbone', 'hbs!templates/home', 'views/projectView'], function(Backbon
 
     addChildView: function (view, options) {
         var child = new view(options);
-        this.$el.find('#showcase').append(child.render().el);
+        this.$("#showcase").append(child.render().el);
         this.childViews.push(child);
     },
 

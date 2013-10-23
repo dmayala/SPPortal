@@ -39,6 +39,8 @@ namespace SPPortal
                 "~/Content/Site.css",
                 "~/Content/style.css"));
 
+            BundleTable.EnableOptimizations = true;
+
         //    bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
         //                "~/Content/themes/base/jquery.ui.core.css",
         //                "~/Content/themes/base/jquery.ui.resizable.css",
