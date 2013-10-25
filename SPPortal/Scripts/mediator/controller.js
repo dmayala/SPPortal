@@ -1,4 +1,4 @@
-define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView', 'views/signupView', 'views/accountView', 'views/rightControlsView', 'models/token', 'views/projectsView'], function (Backbone, Projects, HomeView, ProjectView, SignupView, AccountView, RightControlsView, Token, ProjectsView) {
+define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView', 'views/signupView', 'views/accountView', 'views/rightControlsView', 'models/token', 'views/projectsView', 'views/addProjectView'], function (Backbone, Projects, HomeView, ProjectView, SignupView, AccountView, RightControlsView, Token, ProjectsView, AddProjectView) {
 
   var Controller = function() {
     this.collection = new Projects();
@@ -28,9 +28,9 @@ define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView
     },
 
     showHome: function () {
-        var collection = new Projects();
-        this.showView(new HomeView({ collection: collection }));
-        collection.fetch();
+      var collection = new Projects();
+      this.showView(new HomeView({ collection: collection }));
+      collection.fetch();
     },
 
     showSignup: function () {
@@ -42,7 +42,11 @@ define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView
     },
 
     showProjects: function () {
-        this.showView(new ProjectsView());
+      this.showView(new ProjectsView());
+    },
+
+    showAddProject: function () {
+      this.showView(new AddProjectView());
     }
 
   });
