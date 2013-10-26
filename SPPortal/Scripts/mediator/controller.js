@@ -1,6 +1,7 @@
 define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView', 'views/signupView', 'views/accountView', 'views/rightControlsView', 'models/token', 'views/projectsView', 'views/addProjectView'], function (Backbone, Projects, HomeView, ProjectView, SignupView, AccountView, RightControlsView, Token, ProjectsView, AddProjectView) {
 
   var Controller = function() {
+    this.views = { 'account': AccountView, 'signup': SignupView, 'projects': ProjectsView, 'addProject': AddProjectView };
     this.collection = new Projects();
     this.token = new Token();
   };
@@ -20,11 +21,11 @@ define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView
       this.currentView = view;
       this.currentView.render();
 
-      $("#main").hide().html(this.currentView.el).fadeIn(1000);
+      $('#main').hide().html(this.currentView.el).fadeIn(1000);
     },
 
     showLoginHeader: function (token) {
-      new RightControlsView({model: token});
+      new RightControlsView({el: '#right-controls', model: token});
     },
 
     showHome: function () {
@@ -33,22 +34,12 @@ define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView
       collection.fetch();
     },
 
-    showSignup: function () {
-      this.showView(new SignupView());
-    },
-
-    showAccount: function () {
-      this.showView(new AccountView());
-    },
-
-    showProjects: function () {
-      this.showView(new ProjectsView());
-    },
-
-    showAddProject: function () {
-      this.showView(new AddProjectView());
+    showWildcardView: function (viewName) {
+      var WildView = this.views[viewName];
+      if (WildView) {
+        this.showView(new WildView());
+      }
     }
-
   });
 
   return Controller;

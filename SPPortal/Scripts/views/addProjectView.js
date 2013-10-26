@@ -7,6 +7,12 @@ define(['backbone', 'hbs!templates/addProject'], function(Backbone, AddProjTemp)
         this.render();
     },
 
+    events: {
+      'click .active': function (e) {
+        $(e.target).blur();
+      } 
+    },
+
     render: function () {
         this.$el.html(this.template());
         return this;

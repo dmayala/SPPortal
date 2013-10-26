@@ -1,46 +1,35 @@
 define(['backbone', 'hbs!templates/loggedoff', 'hbs!templates/loggedin'], function(Backbone, LoggedIn, LoggedOff) {
   var RightControlsView = Backbone.View.extend({
 
-    el: '#right-controls',
-
     initialize: function() {
       this.listenTo(this.model, 'sync', this.render);
       this.listenTo(this.model, 'change', this.render);
     },
 
     events: {
-      'submit #test': 'loginSubmit',
+      'submit': 'loginSubmit',
       'click #signoff': 'signOff'
     },
 
     signOff: function(e) {
       e.preventDefault();
-      $.ajax({
-          context: this, 
-          type: 'POST',
-          url: 'Account/LogOff',
-          success: function(response) {
-            this.goTo('signoff');
-          }
-      });
+      var self = this;
+      $.post($(e.target).attr('href'), function (data, textStatus) {
+          self.goTo('signoff');
+      }, 'json');
     },
 
     loginSubmit: function(e) {
       e.preventDefault();
-      $.ajax({
-          context: this, 
-          type: 'POST',
-          url: 'Account/JsonLogin',
-          data: { username: $('#test [name="username"]').val(), 
-                  password: $('#test [name="password"]').val() },
-          success: function (response) {
-              if (!response.errors) {
-                  this.goTo('account');
-              } else {
-                  alert(response.errors);
-              }
-          }
-      });
+      var self = this;
+      var target = $(e.target);
+      $.post(target.attr('action'), target.serialize(), function (data, textStatus) {
+        if (!data.errors) {
+          self.goTo('account');
+        } else {
+          alert(data.errors);
+        }
+      }, 'json');
     },
 
     render: function() {

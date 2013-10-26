@@ -14,8 +14,8 @@ define(['backbone', 'hbs!templates/projects', 'views/projectItemView', 'models/p
     search: function (e) {
         e.preventDefault();
         var self = this;
-        var that = $(e.target);
-        $.getJSON(that.attr("action") + '?' + that.serialize().replace(/\+/g, '%20'), function (data) {
+        var target = $(e.target);
+        $.getJSON(target.attr('action'), target.serialize(), function (data) {
           var newData = new Project(data);
           $('#queryresults').html(new ProjectItemView({ model: newData }).render().el);
         }).fail(function () {

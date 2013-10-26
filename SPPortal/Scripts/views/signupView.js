@@ -13,18 +13,15 @@ define(['backbone', 'hbs!templates/signup'], function(Backbone, Signup) {
 
     registerPost: function(e) {
       e.preventDefault();
-      $.ajax({
-          context: this, 
-          type: 'POST',
-          url: 'Account/JsonRegister',
-          data: { UserName: $('.form-signin [name="username"]').val(), 
-                  Password: $('.form-signin [name="password"]').val(),
-                  ConfirmPassword: $('.form-signin [name="confirmpassword"]').val()
-          },
-          success: function(response) {
-            this.goTo('account');
-          }
-      });
+      var target = $(e.target);
+      var self = this;
+      $.post(target.attr('action'), target.serialize(), function (data, textStatus) {
+        if (!data.errors) {
+          self.goTo('account');
+        } else {
+          alert(data.errors);
+        }
+      }, 'json');
     },
 
     render: function() {
