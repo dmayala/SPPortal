@@ -31,7 +31,7 @@ define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView
     showHome: function () {
       var collection = new Projects();
       this.showView(new HomeView({ collection: collection }));
-      collection.fetch();
+      collection.fetch({ data: $.param({ showcase: true }) });
     },
 
     showWildcardView: function (viewName) {

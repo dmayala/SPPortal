@@ -6,35 +6,35 @@
               <div class="form-group">
                   <label class="control-label">Name</label>
                   <div class="controls">
-                      <input type="text" class="form-control">
+                      <input name="name" type="text" class="form-control">
                   </div>
                   <br />
                   <label class="control-label">Description</label>
                   <div class="controls">
-                      <textarea rows="15" class="form-control"></textarea>
+                      <textarea name="description" rows="15" class="form-control"></textarea>
                   </div>
               </div>
           </fieldset>
           <fieldset>
               <legend>Technology or Application <small style="font-size: 16px; color: #999999;">select all that apply</small></legend>
-              <div class="btn-group" data-toggle="buttons-radio">
-                  <button type="button" class="btn col-xs-12 col-sm-6 btn-default">New to your organization?</button>
-                  <button type="button" class="btn col-xs-12 col-sm-6 btn-default">Add-On Module or Enhancement?</button>
-                  <button type="button" class="btn col-xs-12 col-sm-6 btn-default">Replacement for existing?</button>
-                  <button type="button" class="btn col-xs-12 col-sm-6 btn-default">Client for existing database?</button>
+              <div class="btn-group" data-toggle="buttons">
+                  <label class="btn col-xs-12 col-sm-6 btn-default"><input name="ta1" type="checkbox">New to your organization?</label>
+                  <label class="btn col-xs-12 col-sm-6 btn-default"><input name="ta2" type="checkbox">Add-On Module or Enhancement?</label>
+                  <label class="btn col-xs-12 col-sm-6 btn-default"><input name="ta3" type="checkbox">Replacement for existing?</label>
+                  <label class="btn col-xs-12 col-sm-6 btn-default"><input name="ta4" type="checkbox">Client for existing database?</label>
               </div>
           </fieldset>
           <br />
           <fieldset>
               <legend>Technological Requirements <small style="font-size: 16px; color: #999999;">select all that apply</small></legend>
-              <div class="btn-group" data-toggle="buttons-radio">
-                  <button type="button" class="btn col-xs-12 col-sm-6 btn-default">I have a server or host</button>
-                  <button type="button" class="btn col-xs-12 col-sm-6 btn-default">I am able to upgrade</button>
-                  <button type="button" class="btn col-xs-12 col-sm-6 btn-default">I require a new server or host</button>
-                  <button type="button" class="btn col-xs-12 col-sm-6 btn-default">I use new/anticipated software</button>
+              <div class="btn-group" data-toggle="buttons">
+                  <label class="btn col-xs-12 col-sm-6 btn-default"><input name="tr1" type="checkbox">I have a server or host</label>
+                  <label class="btn col-xs-12 col-sm-6 btn-default"><input name="tr2" type="checkbox">I am able to upgrade</label>
+                  <label class="btn col-xs-12 col-sm-6 btn-default"><input name="tr3" type="checkbox">I require a new server or host</label>
+                  <label class="btn col-xs-12 col-sm-6 btn-default"><input name="tr4" type="checkbox">I use new/anticipated software</label>
               </div>
           </fieldset>
           <hr />
-          <button type="button" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-success">Submit</button>
       </form>
 </div>

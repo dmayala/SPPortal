@@ -64,9 +64,13 @@
 .thumbnails a {
     text-decoration: none;
     color: #000;
+    height: 100%;
+    padding-bottom: 15px;
+
 }
 
 .thumbnails {
+    height: 150px;
     padding-right: 0px;
     padding-bottom: 15px;
 }

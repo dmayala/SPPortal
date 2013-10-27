@@ -10,12 +10,20 @@ define(['backbone', 'hbs!templates/addProject'], function(Backbone, AddProjTemp)
     events: {
       'click .active': function (e) {
         $(e.target).blur();
-      } 
+      },
+
+      'submit': 'submitForm'
     },
 
     render: function () {
         this.$el.html(this.template());
         return this;
+    },
+
+    submitForm: function (e) {
+      e.preventDefault();
+      var target = $(e.target);
+      console.log(target.serialize());
     }
   });
 

@@ -34,6 +34,12 @@ namespace SPPortal.Controllers
             return project;
         }
 
+        //Get Showcase or Non-Showcase Projects
+        public IEnumerable<Project> GetShowcaseProjects(Boolean showcase)
+        {
+            return db.Projects.Where(p => p.featured == showcase).AsEnumerable();
+        }
+
         //Search Projects
         // GET api/Project?q=parameter
         public Project GetProject(string q)
