@@ -42,15 +42,15 @@ namespace SPPortal.Controllers
 
         //Search Projects
         // GET api/Project?q=parameter
-        public Project GetProject(string q)
+        public IEnumerable<Project> GetProjects(string q)
         {
-            Project project = db.Projects.Where(p => p.name.Contains(q)).FirstOrDefault();
-            if (project == null)
+            IEnumerable<Project> projects = db.Projects.Where(p => p.name.Contains(q)).AsEnumerable();
+            if (projects == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return project;
+            return projects;
         }
 
         // PUT api/Project/5

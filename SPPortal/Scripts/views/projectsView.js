@@ -16,10 +16,14 @@ define(['backbone', 'hbs!templates/projects', 'views/projectItemView', 'models/p
         var self = this;
         var target = $(e.target);
         $.getJSON(target.attr('action'), target.serialize(), function (data) {
-          var newData = new Project(data);
-          $('#queryresults').html(new ProjectItemView({ model: newData }).render().el);
-        }).fail(function () {
-          $('#queryresults').empty();
+          if (data.length) {
+            data.forEach(function (project) {
+              var newData = new Project(project);
+              $('#queryresults').append(new ProjectItemView({ model: newData }).render().el);
+            });
+          } else {
+            $('#queryresults').empty();
+          }
         });
     },
 
