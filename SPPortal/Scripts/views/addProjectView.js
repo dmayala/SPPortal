@@ -22,6 +22,7 @@ define(['backbone', 'hbs!templates/addProject', 'models/Project', 'models/Reques
 
     submitForm: function (e) {
       e.preventDefault();
+      var self = this;
       var dataArray = $(e.target).serializeArray();
       var project = new Project({ name: dataArray.shift().value, description: dataArray.shift().value });
       var checked = {};
@@ -32,7 +33,7 @@ define(['backbone', 'hbs!templates/addProject', 'models/Project', 'models/Reques
         success: function (model, response) {
           checked['ProjectID'] = response.id;
           var request = new Request(checked);
-          request.save();
+          request.save(null, { success: function () { self.goTo('account'); } });
         }
       });
     }

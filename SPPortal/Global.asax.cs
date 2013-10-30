@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SPPortal.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -16,6 +18,8 @@ namespace SPPortal
     {
         protected void Application_Start()
         {
+            //Database.SetInitializer<SPContext>(new DropCreateDatabaseAlways<SPContext>());
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

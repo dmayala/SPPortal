@@ -17,6 +17,7 @@ define(['backbone', 'hbs!templates/projects', 'views/projectItemView', 'models/p
         var target = $(e.target);
         $.getJSON(target.attr('action'), target.serialize(), function (data) {
           if (data.length) {
+            $('#queryresults').empty();
             data.forEach(function (project) {
               var newData = new Project(project);
               $('#queryresults').append(new ProjectItemView({ model: newData }).render().el);

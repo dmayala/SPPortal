@@ -44,6 +44,11 @@ namespace SPPortal.Controllers
         // GET api/Project?q=parameter
         public IEnumerable<Project> GetProjects(string q)
         {
+            if (String.IsNullOrEmpty(q))
+            {
+                return GetProjects();
+            }
+
             IEnumerable<Project> projects = db.Projects.Where(p => p.name.Contains(q)).AsEnumerable();
             if (projects == null)
             {
