@@ -206,6 +206,10 @@
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\11Orientation-counseling2-640.jpg" />
+    <Content Include="Images\cpp0007.JPG" />
+    <Content Include="Images\images[1].jpg" />
+    <Content Include="Images\mission-values.jpg" />
     <Content Include="Images\Thumbs.db" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\2.jpg" />
@@ -222,6 +226,7 @@
     <Content Include="Scripts\models\project.js" />
     <Content Include="Scripts\models\token.js" />
     <Content Include="Scripts\routers\appRouter.js" />
+    <Content Include="Scripts\templates\aboutus.html" />
     <Content Include="Scripts\templates\addProject.html" />
     <Content Include="Scripts\templates\projects.html" />
     <Content Include="Scripts\templates\account.html" />
@@ -230,6 +235,9 @@
     <Content Include="Scripts\templates\loggedoff.html" />
     <Content Include="Scripts\templates\showcaseItemView.html" />
     <Content Include="Scripts\templates\signup.html" />
+    <Content Include="Scripts\templates\studenthelp.html" />
+    <Content Include="Scripts\templates\contactus.html" />
+    <Content Include="Scripts\templates\whatisit.html" />
     <Content Include="Scripts\vendor\backbone\backbone-min.js" />
     <Content Include="Scripts\vendor\backbone\backbone.js" />
     <Content Include="Scripts\vendor\backbone\docs\backbone-localstorage.html" />
@@ -1057,6 +1065,10 @@
     <Content Include="Scripts\vendor\underscore-amd\test\vendor\runner.js" />
     <Content Include="Scripts\vendor\underscore-amd\underscore-min.js" />
     <Content Include="Scripts\vendor\underscore-amd\underscore.js" />
+    <Content Include="Scripts\views\whatIsItView.js" />
+    <Content Include="Scripts\views\aboutView.js" />
+    <Content Include="Scripts\views\contactView.js" />
+    <Content Include="Scripts\views\studentHelpView.js" />
     <Content Include="Scripts\views\addProjectView.js" />
     <Content Include="Scripts\views\projectsView.js" />
     <Content Include="Scripts\views\accountView.js" />
