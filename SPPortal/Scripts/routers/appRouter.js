@@ -3,11 +3,21 @@ define(['backbone'], function (Backbone) {
         routes: {
           ""                  : "home",
           "signoff"           : "home",
+          "account"           : "account",
+          "account/projects/:id"      : "list",
           "*view"             : "view"
         },
 
         home: function () {
           this.controller.showHome();
+        },
+
+        account: function() {
+          this.controller.showAccount();
+        },
+
+        list: function(id) {
+          this.controller.listProject(id);
         },
 
         view: function (view) {

@@ -1,7 +1,7 @@
-define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView', 'views/signupView', 'views/accountView', 'views/rightControlsView', 'models/token', 'views/projectsView', 'views/addProjectView', 'views/aboutView', 'views/contactView', 'views/studentHelpView', 'views/whatIsItView'], function (Backbone, Projects, HomeView, ProjectView, SignupView, AccountView, RightControlsView, Token, ProjectsView, AddProjectView, AboutView, ContactView, StudentHelpView, WhatIsItView) {
+define(['backbone', 'models/project', 'collections/projects', 'views/homeView', 'views/projectView', 'views/signupView', 'views/accountView', 'views/rightControlsView', 'models/token', 'views/projectsView', 'views/addProjectView', 'views/aboutView', 'views/contactView', 'views/studentHelpView', 'views/whatIsItView', 'views/projectItemView'], function (Backbone, Project, Projects, HomeView, ProjectView, SignupView, AccountView, RightControlsView, Token, ProjectsView, AddProjectView, AboutView, ContactView, StudentHelpView, WhatIsItView, ProjectItemView) {
 
   var Controller = function() {
-    this.views = { 'account': AccountView, 'signup': SignupView, 'projects': ProjectsView, 'addProject': AddProjectView, 'about': AboutView, 'contact': ContactView, 'studenthelp': StudentHelpView, 'whatisit': WhatIsItView };
+    this.views = { 'signup': SignupView, 'projects': ProjectsView, 'addProject': AddProjectView, 'about': AboutView, 'contact': ContactView, 'studenthelp': StudentHelpView, 'whatisit': WhatIsItView };
     this.collection = new Projects();
     this.token = new Token();
   };
@@ -34,10 +34,30 @@ define(['backbone', 'collections/projects', 'views/homeView', 'views/projectView
       collection.fetch({ data: $.param({ showcase: true }) });
     },
 
+    showAccount: function () {
+        var myProjects = new Projects();
+        myProjects.fetch({ data: $.param({ user: true }) });
+        this.showView(new AccountView({ collection: myProjects, model: this.token }));
+    },
+
+    listProject: function (id) {
+        var project = new Project({ id: id });
+        var self = this;
+        project.fetch({
+            success: function () {
+                var projView = new ProjectItemView({ model: project });
+                self.showView(projView);
+            }
+        });
+    },
+
     showWildcardView: function (viewName) {
       var WildView = this.views[viewName];
       if (WildView) {
         this.showView(new WildView());
+      }
+      if (viewName === 'projects') {
+          this.currentView.$el.find($('.btn')).click();
       }
     }
   });

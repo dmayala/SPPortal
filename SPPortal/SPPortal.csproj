@@ -210,6 +210,9 @@
     <Content Include="Images\cpp0007.JPG" />
     <Content Include="Images\images[1].jpg" />
     <Content Include="Images\mission-values.jpg" />
+    <Content Include="Images\sampvec\client.png" />
+    <Content Include="Images\sampvec\prof.png" />
+    <Content Include="Images\sampvec\student.png" />
     <Content Include="Images\Thumbs.db" />
     <Content Include="Images\1.jpg" />
     <Content Include="Images\2.jpg" />
@@ -234,9 +237,12 @@
     <Content Include="Scripts\templates\loggedin.html" />
     <Content Include="Scripts\templates\loggedoff.html" />
     <Content Include="Scripts\templates\showcaseItemView.html" />
+    <Content Include="Scripts\templates\signup2-bak.html" />
     <Content Include="Scripts\templates\signup.html" />
+    <Content Include="Scripts\templates\signup-bak3.html" />
     <Content Include="Scripts\templates\studenthelp.html" />
     <Content Include="Scripts\templates\contactus.html" />
+    <Content Include="Scripts\templates\projDetails.html" />
     <Content Include="Scripts\templates\whatisit.html" />
     <Content Include="Scripts\vendor\backbone\backbone-min.js" />
     <Content Include="Scripts\vendor\backbone\backbone.js" />
@@ -1065,6 +1071,7 @@
     <Content Include="Scripts\vendor\underscore-amd\test\vendor\runner.js" />
     <Content Include="Scripts\vendor\underscore-amd\underscore-min.js" />
     <Content Include="Scripts\vendor\underscore-amd\underscore.js" />
+    <Content Include="Scripts\views\projectDetailsView.js" />
     <Content Include="Scripts\views\whatIsItView.js" />
     <Content Include="Scripts\views\aboutView.js" />
     <Content Include="Scripts\views\contactView.js" />
@@ -1275,6 +1282,9 @@
     <Content Include="Scripts\vendor\underscore-amd\Rakefile" />
     <Content Include="Scripts\vendor\underscore-amd\README.md" />
     <Content Include="Scripts\vendor\underscore-amd\underscore-min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\sampvec\Thumbs.db" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

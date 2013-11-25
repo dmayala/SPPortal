@@ -27,6 +27,22 @@ namespace SPPortal.Models
         public string UserName { get; set; }
     }
 
+    [Table("UserInfo")]
+    public class UserInfo
+    {
+        [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
+        public int UserInfoID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public int UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual UserProfile Profile { get; set; }
+
+    }
+
+
     public class RegisterExternalLoginModel
     {
         [Required]
@@ -86,6 +102,14 @@ namespace SPPortal.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "First name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last name")]
+        public string LastName { get; set; }
     }
 
     public class ExternalLogin

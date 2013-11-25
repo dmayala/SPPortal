@@ -64,6 +64,16 @@ namespace SPPortal.Controllers
         // POST api/Request
         public HttpResponseMessage PostRequest(Request request)
         {
+            //using (UsersContext db2 = new UsersContext())
+            //{
+            //    UserProfile user = db2.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == User.Identity.Name);
+            //    Project project = db.Projects.LastOrDefault(p => p.UserId == user.UserId);
+            //    request.ProjectId = project.UserId;
+            //}
+
+            UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == User.Identity.Name);
+            Project project = db.Projects.OrderByDescending(p => p.id).FirstOrDefault(p => p.UserId == user.UserId); 
+            request.ProjectId = project.id;
 
             if (ModelState.IsValid)
             {

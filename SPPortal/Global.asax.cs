@@ -19,6 +19,7 @@ namespace SPPortal
         protected void Application_Start()
         {
             //Database.SetInitializer<SPContext>(new DropCreateDatabaseAlways<SPContext>());
+            //Database.SetInitializer<SPContext>(new DropCreateDatabaseIfModelChanges<SPContext>());
 
             AreaRegistration.RegisterAllAreas();
 

@@ -22,5 +22,7 @@ namespace SPPortal.Models
 
         public DbSet<Project> Projects { get; set; }
         public DbSet<Request> Requests { get; set; }
+        public DbSet<UserInfo> UserInfos { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
     }
 }

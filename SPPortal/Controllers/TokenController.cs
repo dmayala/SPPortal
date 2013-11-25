@@ -20,7 +20,7 @@ namespace SPPortal.Controllers
             string allText = "{'loggedIn': false}";
 
             if (User.Identity.IsAuthenticated) {
-                allText = "{'loggedIn': true}";
+                allText = "{'loggedIn': true, 'userName': '" + User.Identity.Name + "'}";
             }
 
             object jsonObject = JsonConvert.DeserializeObject(allText);

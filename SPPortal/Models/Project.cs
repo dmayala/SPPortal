@@ -13,9 +13,17 @@ namespace SPPortal.Models
     public class Project
     {
         public long id { get; set; }
+
+        [Required]
         public string name { get; set; }
+
+        [Required]
         public string description { get; set; }
         public string img { get; set; }
         public Boolean featured { get; set; }
+
+        [ForeignKey("UserProfile")]
+        public int UserId { get; set; }
+        public virtual UserProfile UserProfile { get; set; }
     }
 }

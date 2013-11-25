@@ -13,18 +13,20 @@ namespace SPPortal.Models
     public class Request
     {
         public long id { get; set; }
-        public string ta1 { get; set; }
-        public string ta2 { get; set; }
-        public string ta3 { get; set; }
-        public string ta4 { get; set; }
 
-        public string tr1 { get; set; }
-        public string tr2 { get; set; }
-        public string tr3 { get; set; }
-        public string tr4 { get; set; }
+        public int choices { get; set; }
+        //public string ta1 { get; set; }
+        //public string ta2 { get; set; }
+        //public string ta3 { get; set; }
+        //public string ta4 { get; set; }
+
+        //public string tr1 { get; set; }
+        //public string tr2 { get; set; }
+        //public string tr3 { get; set; }
+        //public string tr4 { get; set; }
 
         [ForeignKey("Project")]
-        public long ProjectID { get; set; }
+        public long ProjectId { get; set; }
         public virtual Project Project { get; set; }
     }
 }

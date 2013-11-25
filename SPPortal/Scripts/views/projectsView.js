@@ -4,7 +4,7 @@ define(['backbone', 'hbs!templates/projects', 'views/projectItemView', 'models/p
     template: ProjectsTemp,
 
     initialize: function() {
-      this.render();
+        this.render();
     },
 
     events: {

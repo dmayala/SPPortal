@@ -1,9 +1,17 @@
 <div class="container">
-    <div class="row col-md-8">
-        <h1>Welcome user!</h1>
+    <div id="accountpanel" class="row col-md-8">
+        <h1>Welcome {{username}}!</h1>
     </div>
     <div class="row col-md-4">
         <h1>Your Projects</h1>
-        <div id="myprojects">You have no projects.</div>
+        <div id="myprojects">
+            <ul class="projects_list">
+                {{#each projects}}
+                <li><a href="{{ id }}">{{ name }}</a></li>
+                {{else}}
+                <li>You have no projects.</li>
+                {{/each}}
+            </ul>
+        </div>
     </div>
 </div>

@@ -66,6 +66,17 @@ namespace SPPortal.Controllers
                 try
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+
+                    // Insert user info into the info table
+                    using (SPContext db = new SPContext())
+                    {
+                        using (UsersContext db2 = new UsersContext()) {
+                            UserProfile user = db2.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
+                            db.UserInfos.Add(new UserInfo { FirstName = model.FirstName, LastName = model.LastName, UserId = user.UserId });
+                            db.SaveChanges();
+                        }
+                    }
+
                     WebSecurity.Login(model.UserName, model.Password);
 
 
@@ -81,11 +92,6 @@ namespace SPPortal.Controllers
             // If we got this far, something failed
             return Json(new { errors = GetErrorsFromModelState() });
         }
-
-        /// <summary>
-        /// Initiate a new todo list for new user
-        /// </summary>
-        /// <param name="userName"></param>
 
         //
         // POST: /Account/Disassociate

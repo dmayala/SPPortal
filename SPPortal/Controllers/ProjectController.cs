@@ -23,6 +23,18 @@ namespace SPPortal.Controllers
         }
 
         // GET api/Project/5
+        public IEnumerable<Project> GetMyProjects(Boolean user)
+        {
+            IEnumerable<Project> projects = db.Projects.Where(p => p.UserProfile.UserName == User.Identity.Name).AsEnumerable();
+            if (projects == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return projects;
+        }
+
+        // GET api/Project/5
         public Project GetProject(long id)
         {
             Project project = db.Projects.Find(id);
@@ -90,6 +102,10 @@ namespace SPPortal.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName == User.Identity.Name);
+                project.UserId = user.UserId;
+
                 db.Projects.Add(project);
                 db.SaveChanges();
 
