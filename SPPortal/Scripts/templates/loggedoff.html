@@ -7,6 +7,11 @@
     <li>
       <a href="#addProject">Add Project</a>
     </li>
+      {{#if role}}
+      <li>
+          <a href="#adminPanel">Admin Panel</a>
+      </li>
+      {{/if}}
   </ul>
 </li>
 <li><a href="Account/LogOff" id="signoff" class="btn-success">Log Out</a></li>

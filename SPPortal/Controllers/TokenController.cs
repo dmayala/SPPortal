@@ -13,14 +13,19 @@ namespace SPPortal.Controllers
         // GET api/Token
         public object Get()
         {
-            // Work in Progress
-            //string allText = "{'loggedIn': false}";
-            //object jsonObject = JsonConvert.DeserializeObject(allText);
-            //return jsonObject;
             string allText = "{'loggedIn': false}";
 
             if (User.Identity.IsAuthenticated) {
-                allText = "{'loggedIn': true, 'userName': '" + User.Identity.Name + "'}";
+                allText = "{'role': false, 'loggedIn': true, 'userName': '" + User.Identity.Name + "'}";
+                try
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        allText = "{'role': true, 'loggedIn': true, 'userName': '" + User.Identity.Name + "'}";
+                    }
+                } catch (Exception ex) {
+
+                }
             }
 
             object jsonObject = JsonConvert.DeserializeObject(allText);

@@ -1,4 +1,4 @@
-define(['backbone', 'hbs!templates/projDetails'], function (Backbone, ProjDetailsTpl) {
+define(['backbone', 'hbs!templates/pubProjDetails'], function (Backbone, ProjDetailsTpl) {
   var ProjectDetailsView = Backbone.View.extend({
 
     template: ProjDetailsTpl,

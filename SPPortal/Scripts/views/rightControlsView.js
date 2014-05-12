@@ -24,8 +24,8 @@ define(['backbone', 'hbs!templates/loggedoff', 'hbs!templates/loggedin'], functi
       var self = this;
       var target = $(e.target);
       $.post(target.attr('action'), target.serialize(), function (data, textStatus) {
-        if (!data.errors) {
-          self.goTo('account');
+          if (!data.errors) {
+            self.goTo('account');
         } else {
           alert(data.errors);
         }
@@ -39,7 +39,7 @@ define(['backbone', 'hbs!templates/loggedoff', 'hbs!templates/loggedin'], functi
         this.template = LoggedOff;
       }
 
-      this.$el.html(this.template());
+      this.$el.html(this.template(this.model.attributes));
       return this;
     }
   });

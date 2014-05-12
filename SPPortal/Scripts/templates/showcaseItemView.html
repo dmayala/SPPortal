@@ -1,6 +1,6 @@
 <div class="thumbnails col-xs-6">
     <a data-toggle="modal" href="#modal{{ id }}" class="thumbnail plain showcaseThumb">
-      <img src="images/{{ img }}"> 
+        <img src="images/logos/{{#if img}}{{ img }}{{else}}nologo.jpg{{/if}}"> 
       <h5>{{ name }}</h5>   
     </a>
 </div>
@@ -20,13 +20,13 @@
                 <div>
                     <dl>
                         <dt>Synopsis</dt>
-                        <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie elit sit amet ornare placerat.</dd>
+                        <dd>{{ description }}</dd>
                         <dt>Client</dt>
-                        <dd>Ipsum Inc</dd>
+                        <dd>{{ client }}</dd>
                         <dt>Date</dt>
-                        <dd>1/1/13</dd>
+                        <dd>{{ date }}</dd>
                         <dt>Students</dt>
-                        <dd>Lorem Ipsum, Dolor Sit Amet, Molestie Elit</dd>
+                        <dd>{{ students }}</dd>
                     </dl>
                 </div>
             </div>

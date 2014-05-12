@@ -20,7 +20,16 @@ namespace SPPortal.Models
         [Required]
         public string description { get; set; }
         public string img { get; set; }
+
+        public string students { get; set; }
+
+        public string date { get; set; }
+
+        public string client { get; set; }
+
         public Boolean featured { get; set; }
+
+        public String status { get; set; } 
 
         [ForeignKey("UserProfile")]
         public int UserId { get; set; }

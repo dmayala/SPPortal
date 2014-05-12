@@ -52,16 +52,33 @@ namespace SPPortal.Controllers
             return db.Projects.Where(p => p.featured == showcase).AsEnumerable();
         }
 
+        public IEnumerable<Project> GetCompletedProjects(Boolean completed)
+        {
+            return db.Projects.Where(p => p.status == "completed").AsEnumerable();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IEnumerable<Project> GetPendingProjects(Boolean pending)
+        {
+            return db.Projects.Where(p => p.status == "pending").AsEnumerable();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IEnumerable<Project> GetApprovedProjects(Boolean approved)
+        {
+            return db.Projects.Where(p => p.status == "approved").AsEnumerable();
+        }
+
         //Search Projects
         // GET api/Project?q=parameter
         public IEnumerable<Project> GetProjects(string q)
         {
             if (String.IsNullOrEmpty(q))
             {
-                return GetProjects();
+                return GetCompletedProjects(true);
             }
 
-            IEnumerable<Project> projects = db.Projects.Where(p => p.name.Contains(q)).AsEnumerable();
+            IEnumerable<Project> projects = db.Projects.Where(p => p.name.Contains(q) && p.status.Equals("completed")).AsEnumerable();
             if (projects == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));

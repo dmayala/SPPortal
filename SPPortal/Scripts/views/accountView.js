@@ -1,23 +1,19 @@
-define(['backbone', 'hbs!templates/account', 'models/Project', 'views/projectDetailsView'], function (Backbone, Account, Project, ProjectDetailsView) {
+define(['backbone', 'hbs!templates/account', 'models/Project', 'views/pubProjDetailsView'], function (Backbone, Account, Project, ProjectDetailsView) {
   var AccountView = Backbone.View.extend({
 
     template: Account,
 
     initialize: function() {
         this.listenTo(this.collection, 'sync', this.render);
+        this.listenTo(this.collection, 'remove', this.render);
     },
 
     events: {
         'click .projects_list a': function (e) {
             e.preventDefault();
-            var project = new Project({ id: $(e.target).attr('href') });
-            var self = this;
-            project.fetch({
-                success: function () {
-                    var projView = new ProjectDetailsView({ model: project });
-                    $('#accountpanel').html(projView.el);
-                }
-            });
+            var project = this.collection.get($(e.target).attr('href'));
+            var projView = new ProjectDetailsView({ model: project });
+            $('#accountpanel').html(projView.el);
         }
     },
 

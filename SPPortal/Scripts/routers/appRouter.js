@@ -4,7 +4,8 @@ define(['backbone'], function (Backbone) {
           ""                  : "home",
           "signoff"           : "home",
           "account"           : "account",
-          "account/projects/:id"      : "list",
+          "account/projects/:id": "list",
+            "adminPanel": "adminPanel",
           "*view"             : "view"
         },
 
@@ -14,6 +15,10 @@ define(['backbone'], function (Backbone) {
 
         account: function() {
           this.controller.showAccount();
+        },
+
+        adminPanel: function () {
+            this.controller.showAdmin();
         },
 
         list: function(id) {

@@ -1,4 +1,4 @@
-define(['backbone', 'models/project', 'collections/projects', 'views/homeView', 'views/projectView', 'views/signupView', 'views/accountView', 'views/rightControlsView', 'models/token', 'views/projectsView', 'views/addProjectView', 'views/aboutView', 'views/contactView', 'views/studentHelpView', 'views/whatIsItView', 'views/projectItemView'], function (Backbone, Project, Projects, HomeView, ProjectView, SignupView, AccountView, RightControlsView, Token, ProjectsView, AddProjectView, AboutView, ContactView, StudentHelpView, WhatIsItView, ProjectItemView) {
+define(['backbone', 'models/project', 'collections/projects', 'views/homeView', 'views/projectView', 'views/signupView', 'views/accountView', 'views/rightControlsView', 'models/token', 'views/projectsView', 'views/addProjectView', 'views/aboutView', 'views/contactView', 'views/studentHelpView', 'views/whatIsItView', 'views/projectItemView', 'views/adminView'], function (Backbone, Project, Projects, HomeView, ProjectView, SignupView, AccountView, RightControlsView, Token, ProjectsView, AddProjectView, AboutView, ContactView, StudentHelpView, WhatIsItView, ProjectItemView, AdminView) {
 
   var Controller = function() {
     this.views = { 'signup': SignupView, 'projects': ProjectsView, 'addProject': AddProjectView, 'about': AboutView, 'contact': ContactView, 'studenthelp': StudentHelpView, 'whatisit': WhatIsItView };
@@ -49,6 +49,12 @@ define(['backbone', 'models/project', 'collections/projects', 'views/homeView', 
                 self.showView(projView);
             }
         });
+    },
+
+    showAdmin: function () {
+        var collection = new Projects();
+        this.showView(new AdminView({ collection: collection }));
+        collection.fetch();
     },
 
     showWildcardView: function (viewName) {

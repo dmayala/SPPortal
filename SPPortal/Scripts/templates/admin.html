@@ -1,0 +1,19 @@
+<div class="container">
+    <div id="adminlist" class="row col-md-5">
+        <h1>Admin Panel</h1>
+        <ul class="selector">
+            <li id="pendingbtn" class="btn btn-default">Pending</li>
+            <li id="approvedbtn" class="btn btn-default">Approved</li>
+            <li id="completedbtn" class="btn btn-default">Completed</li>
+            <li id="featuredbtn" class="btn btn-default">Featured</li>
+        </ul>
+        <ul class="projects_list">
+            {{#each projects}}
+            <li><a href="{{ id }}">{{ name }}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+    <div id="adminPanel" class="row col-md-7">
+        
+    </div>
+</div>

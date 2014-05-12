@@ -39,7 +39,7 @@ define(['backbone', 'hbs!templates/addProject', 'models/Project', 'models/Reques
       e.preventDefault();
       var self = this;
       var dataArray = $(e.target).serializeArray();
-      var project = new Project({ name: dataArray.shift().value, description: dataArray.shift().value });
+      var project = new Project({ status: 'pending', name: dataArray.shift().value, description: dataArray.shift().value });
       window.checked = {};
       checked['choices'] = "";
       dataArray.forEach(function (data) {
